@@ -16,9 +16,9 @@ int main()
     board.New();
     board.Copy_(table);
 
-    int round = 500000, score = 0, round_score = 0;
+    int round = 10000, score = 0, round_score = 0;
 
-    cout << "For AI" << endl << "Round >> 50000" << endl;
+    cout << "For AI" << endl << "Round >> 10000" << endl;
     //cin >> round;
 
     AI myai;
@@ -46,7 +46,13 @@ int main()
         }*/
         if(board.Compare(table) && board.Randon_add() == 1 && board.Failed())
         {
-            if(round%100==1)
+            if(board.Win())
+            {
+                cout << "WIN!!!";
+                win++;
+                failed--;
+            }
+            if(round%10==1)
                 cout << "!";
             failed++;
             round--;
@@ -55,7 +61,7 @@ int main()
             //board.Show();
             myai.Failed_reward(score);
             score = 0;
-            if(avg_round == 1000)
+            if(avg_round == 100)
             {
                 cout << endl << avg_sum / avg_round ;
                 avg_sum = 0;
