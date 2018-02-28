@@ -45,10 +45,10 @@ int AI::Go(Board &board)
 void AI::Reward(const int table[][4], double max_table_score, const int &round_score)
 {
     double old_table_score = this->Table_score(table);
-    double correction_data = (double) (max_table_score + (double)round_score - old_table_score) * L_rate;
+    double target_data = (double) (max_table_score + (double)round_score) ;
     for(int i = 0; i < mapkey.size(); ++i)
     {
-        myscore[mapkey[i]] += (correction_data / 16.0) ;
+        myscore[mapkey[i]] = myscore[mapkey[i]]*(1-L_rate)+(target_data / 16.0)* L_rate;
     }
 }
 
@@ -56,12 +56,12 @@ void AI::Failed_reward(const int table[][4])
 {
     //double correction_data = (score * (-1)) / 10 * L_rate;
     double old_table_score = this->Table_score(table);
-    double correction_data = (Failed_score) * L_rate;
+    double target_data = Failed_score ;
     double temp;
     for(int i = 0; i < mapkey.size(); ++i)
     {
         //cout << mapkey[i]<<endl;
-        myscore[mapkey[i]] += (correction_data / 16.0);
+        myscore[mapkey[i]] = myscore[mapkey[i]]*(1-L_rate)+(target_data / 16.0)* L_rate;
     }
 }
 

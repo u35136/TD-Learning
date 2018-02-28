@@ -18,13 +18,16 @@ int main()
 
     int round = 10000000, score = 0, round_score = 0;
 
+    fstream  file;
+    file.open("output.txt", ios::out);
+
+
     cout << "For AI" << endl << "Round >> 10000000" << endl;
     //cin >> round;
 
     AI myai;
     int win = 0, failed = 0;
-    long long int avg_sum = 0;
-    int avg_round = 0;
+    long long int avg_sum = 0, avg_round = 0,avg_max=0;
 
     while(round)
     {
@@ -46,6 +49,7 @@ int main()
         }*/
         if(board.Compare(table) && board.Randon_add() == 1 && board.Failed())
         {
+            if(round %10==0) cout <<"!";
             if(board.Win())
             {
                 cout << "WIN!!!";
@@ -56,15 +60,18 @@ int main()
             round--;
             avg_sum += score;
             avg_round += 1;
+            if(score>avg_max) avg_max=score;
             //board.Show();
             board.Copy_(table);
             myai.Failed_reward(table);
             score = 0;
-            if(avg_round == 1000)
+            if(avg_round == 100)
             {
-                cout << endl << avg_sum / avg_round ;
+                cout << avg_sum / avg_round <<" "<<avg_max<< endl;
+                file << avg_sum / avg_round <<" "<<avg_max<< endl;
                 avg_sum = 0;
                 avg_round = 0;
+                avg_max=0;
             }
             board.New();
 
@@ -73,7 +80,7 @@ int main()
     }
     string str = "test";
     myai.Save(str, win, failed);
-
+    file.close();
     /*//keyboard
     int c, k = 1;
     while(k != 0)
