@@ -70,12 +70,12 @@ void AI::Failed(Board &board)
     int table[4][4];
     board.Copy_(table);
     double old_table_score = this->Table_score(table);
-    double target_data = old_table_score * (-1) ;
+    double target_data = 0 ;
     for(int i = 0; i < mapkey.size(); ++i)
     {
         //cout << mapkey[i]<<endl;
         //myscore[mapkey[i]] = myscore[mapkey[i]] + (target_data / 16.0) * L_rate;
-        myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
+        myscore[mapkey[i]] = myscore[mapkey[i]] + ((target_data-old_table_score) / 16.0) * L_rate;
     }
     double now_update_table_score, round_score;
     for(int i = last.size() - 1; i >= 0; --i)
@@ -88,7 +88,7 @@ void AI::Failed(Board &board)
         for(int i = 0; i < mapkey.size(); ++i)
         {
             //myscore[mapkey[i]] = myscore[mapkey[i]] + (target_data / 16.0) * L_rate;
-            myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
+            myscore[mapkey[i]] = myscore[mapkey[i]] + ((target_data - now_update_table_score) / 16.0) * L_rate;
         }
         old_table_score = now_update_table_score;
     }
