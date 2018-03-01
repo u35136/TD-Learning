@@ -32,8 +32,8 @@ int main()
     while(round)
     {
         board.Copy_(table);
-        cout << "Your score: " << score << endl;
-        board.Show();
+        //cout << "Your score: " << score << endl;
+        //board.Show();
 
         round_score = myai.Go(board);
 
@@ -62,7 +62,7 @@ int main()
             avg_round += 1;
             //cout << score<<endl;
             if(score>avg_max) avg_max=score;
-            board.Show();
+            //board.Show();
             myai.Failed(board);
             score = 0;
             if(avg_round == 1000)
