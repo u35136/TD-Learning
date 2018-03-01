@@ -77,12 +77,13 @@ void AI::Failed(Board &board)
         //myscore[mapkey[i]] = myscore[mapkey[i]] + (target_data / 16.0) * L_rate;
         myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
     }
-    double now_update_table_score,round_score;
-    for(int i=last.size()-1;i>=0;--i)
+    double now_update_table_score, round_score;
+    for(int i = last.size() - 1; i >= 0; --i)
     {
-        BoardState temp=last[i];
+        BoardState temp = last[i];
         now_update_table_score = this->Table_score(temp.d2array);
         round_score = temp.round_score;
+        //cout << "round_score " << round_score << endl;
         target_data = (double) (old_table_score + (double)round_score) ;
         for(int i = 0; i < mapkey.size(); ++i)
         {
@@ -163,9 +164,8 @@ double AI::Table_score(const int table[][4])
 
 void AI::Save(string &filename, const int &win, const int &failed)const
 {
-    fstream  fp;
-    filename += ".txt";
-    fp.open(filename, ios::out);
+    filename+=".txt";
+    ofstream fp(filename);
     fp << win << " " << failed << endl;
     auto it = myscore.begin();
     for( ; it != myscore.end(); ++it)
@@ -173,14 +173,17 @@ void AI::Save(string &filename, const int &win, const int &failed)const
     fp.close();
 }
 
-void AI::Load(string &filenamem, int &win, int &failed)
+void AI::Load(string &filename, int &win, int &failed)
 {
-    /*fstream  fp;
     filename += ".txt";
-    fp.open(filename, ios::out);
+    ifstream fp(filename);
     fp >> win >> failed;
-    auto it = myscore.begin();
-    for( ;it != myscore.end(); ++it)
-        fp << it->first << " " << it->second << endl;
-    fp.close();*/
+    string key;
+    double value;
+    while(fp >> key)
+    {
+        fp >> value;
+        myscore[key]=value;
+    }
+    fp.close();
 }

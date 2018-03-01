@@ -16,7 +16,7 @@ int main()
     board.New();
     board.Copy_(table);
 
-    int round = 100000, score = 0, round_score = 0;
+    int round = 10000, score = 0, round_score = 0;
 
     fstream  file;
     file.open("output.txt", ios::out);
@@ -28,7 +28,8 @@ int main()
     AI myai;
     int win = 0, failed = 0;
     long long int avg_sum = 0, avg_round = 0,avg_max=0;
-
+    string str = "test";
+    myai.Load(str, win, failed);
     while(round)
     {
         board.Copy_(table);
@@ -79,7 +80,6 @@ int main()
         }
         //system("pause");
     }
-    string str = "test";
     myai.Save(str, win, failed);
     file.close();
     /*//keyboard
