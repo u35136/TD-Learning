@@ -6,7 +6,7 @@
 #include <map>
 #include <sstream>
 #include <fstream>
-#define L_rate 0.1
+#define L_rate 0.3
 
 using D2array =array<array<int, 4>, 4>;
 

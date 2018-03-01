@@ -16,38 +16,38 @@ int AI::Go(Board &board)
     {
         max_table_score = temp_table_score;
         opt = UP;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score << endl;
+        cout << "Yes " << opt <<"  table_score " << temp_table_score << endl;
     }
     if(this->Diff_step(RIGHT, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
         opt = RIGHT;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
+        cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
     }
     if(this->Diff_step(DOWN, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
         opt = DOWN;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
+        cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
     }
     if(this->Diff_step(LEFT, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
         opt = LEFT;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
+        cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
     }
 
-    //cout << "MY option "<< opt <<" Now max_table_score " << max_table_score<<endl;
+    cout << "MY option "<< opt <<" Now max_table_score " << max_table_score<<endl;
     BoardState temp;
     board.Copy_(temp.d2array);
     temp.round_score = board.Move(opt);
 
-    //cout << "round score "<<temp.round_score << endl;
+    cout << "round score "<<temp.round_score << endl;
     //this->Reward(old_table, max_table_score, round_score);
     last.push_back(temp);
 
-    //cout <<"last size "<< last.size()<<endl;
-    //cout <<"NEW " << last[last.size()-1].d2array<<" " << last[last.size()-1].round_score<<endl;
+    cout <<"last size "<< last.size()<<endl;
+    cout <<"NEW " << last[last.size()-1].d2array<<" " << last[last.size()-1].round_score<<endl;
 
     return temp.round_score;
 }
@@ -74,7 +74,6 @@ void AI::Failed(Board &board)
     for(int i = 0; i < mapkey.size(); ++i)
     {
         //cout << mapkey[i]<<endl;
-        //myscore[mapkey[i]] = myscore[mapkey[i]] + (target_data / 16.0) * L_rate;
         myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
     }
     double now_update_table_score,round_score;
@@ -86,7 +85,6 @@ void AI::Failed(Board &board)
         target_data = (double) (old_table_score + (double)round_score) ;
         for(int i = 0; i < mapkey.size(); ++i)
         {
-            //myscore[mapkey[i]] = myscore[mapkey[i]] + (target_data / 16.0) * L_rate;
             myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
         }
         old_table_score = now_update_table_score;
@@ -118,12 +116,12 @@ bool AI::Diff_step(const Option &opt, const Board &board, double &table_score)
 
     if(!board.Compare(temp))
     {
-        //cout << opt <<" false "<< endl;
+        cout << opt <<" false "<< endl;
         return false;
     }
     else
         table_score = Table_score(temp);
-    //cout << opt <<" temp_table_score " << table_score << endl;
+    cout << opt <<" temp_table_score " << table_score << endl;
     return true;
 }
 
