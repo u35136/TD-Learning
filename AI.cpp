@@ -33,36 +33,56 @@ int AI::Go(Board &board)
         opt = LEFT;
     }
 
+    BoardState temp;
+    board.Copy_(temp.d2array);
+    temp.round_score = board.Move(opt);
 
-    board.Copy_(old_table);
-    int round_score = board.Move(opt);
+    //this->Reward(old_table, max_table_score, round_score);
+    last.push_back(temp);
 
-    this->Reward(old_table, max_table_score, round_score);
-
-    return round_score;
+    return temp.round_score;
 }
 
-void AI::Reward(const int table[][4], double max_table_score, const int &round_score)
+/*void AI::Reward(const int table[][4], double max_table_score, const int &round_score)
 {
     double old_table_score = this->Table_score(table);
     double target_data = (double) (max_table_score + (double)round_score) ;
     for(int i = 0; i < mapkey.size(); ++i)
     {
-        myscore[mapkey[i]] = myscore[mapkey[i]]*(1-L_rate)+(target_data / 16.0)* L_rate;
+        //double temp = myscore[mapkey[i]];
+        myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
+        //temp = myscore[mapkey[i]]-temp;
+        //cout<<temp<<endl;
     }
 }
-
-void AI::Failed_reward(const int table[][4])
+*/
+void AI::Failed(Board &board)
 {
-    //double correction_data = (score * (-1)) / 10 * L_rate;
+    int table[4][4];
+    board.Copy_(table);
     double old_table_score = this->Table_score(table);
-    double target_data = Failed_score ;
-    double temp;
+    double target_data = old_table_score * (-1) ;
     for(int i = 0; i < mapkey.size(); ++i)
     {
         //cout << mapkey[i]<<endl;
-        myscore[mapkey[i]] = myscore[mapkey[i]]*(1-L_rate)+(target_data / 16.0)* L_rate;
+        myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
     }
+    double now_update_table_score,round_score;
+    for(int i=last.size()-1;i>=0;--i)
+    {
+        BoardState temp=last[i];
+        now_update_table_score = this->Table_score(temp.d2array);
+        round_score = temp.round_score;
+        target_data = (double) (old_table_score + (double)round_score) ;
+        for(int i = 0; i < mapkey.size(); ++i)
+        {
+            myscore[mapkey[i]] = myscore[mapkey[i]] * (1 - L_rate) + (target_data / 16.0) * L_rate;
+        }
+        old_table_score = now_update_table_score;
+    }
+    //cout << last.size()<<endl;
+    last.clear();
+    //cout << last.size()<<endl;
 }
 
 bool AI::Diff_step(const Option &opt, const Board &board, double &table_score)
@@ -139,12 +159,12 @@ void AI::Save(string &filename, const int &win, const int &failed)const
     fp.close();
 }
 
-void AI::Load(string &filename)const
+void AI::Load(string &filenamem, int &win, int &failed)
 {
     /*fstream  fp;
     filename += ".txt";
     fp.open(filename, ios::out);
-    fp << win<<" "<< failed<<endl;
+    fp >> win >> failed;
     auto it = myscore.begin();
     for( ;it != myscore.end(); ++it)
         fp << it->first << " " << it->second << endl;
