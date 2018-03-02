@@ -6,7 +6,9 @@
 #include <math.h>
 #define Table_base 2
 #define Win_base 11
+
 using namespace std;
+using D2array = array<array<int, 4>, 4>;
 
 enum Option {UP, DOWN, LEFT, RIGHT};
 
@@ -22,7 +24,7 @@ public:
     void Replace(const int new_table[][4]);//new to this
 
     int Move(const Option &opt);//return score
-    void Move(const Option &opt,int temp[][4]) const;//for AI
+    void Move(const Option &opt, int temp[][4]) const; //for AI
 
     int Randon_add();//return empty size
     void New();
@@ -41,5 +43,4 @@ private:
     void Move_right(int temp[][4]) const;
     void Move_left(int temp[][4]) const;
 };
-/*{{1,2,1,3},{4,2,4,2},{0,6,5,6},{7,8,8,7}};*/
 #endif
