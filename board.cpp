@@ -14,6 +14,17 @@ void Board::Show()const
         cout << endl;
 }
 
+void Board::Copy_to(Board &board) const
+{
+    board.Replace(table);
+    board.SetWin(win);
+}
+
+ void Board::SetWin(const bool &newwin)
+ {
+     win=newwin;
+ }
+
 void Board::Copy_(int new_table[][4])const
 {
     for(int i = 0; i < 4; ++i)
@@ -25,7 +36,7 @@ void Board::Copy_(int new_table[][4])const
     }
 }
 
-const bool Board::Compare(int last_table[][4])const
+const bool Board::Compare(const int last_table[][4])const
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -65,7 +76,7 @@ bool Board::Failed()
     return true;
 }
 
-void Board::Replace(int new_table[][4])//new to this
+void Board::Replace(const int new_table[][4])//new to this
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -74,6 +85,14 @@ void Board::Replace(int new_table[][4])//new to this
              table[i][j] = new_table[i][j];
         }
     }
+}
+
+void Board::Move(const Option &opt,int temp[][4])const
+{
+    if(opt == UP){this->Move_up(temp);}
+    else if(opt == DOWN){this->Move_down(temp);}
+    else if(opt == LEFT){this->Move_left(temp);}
+    else if(opt == RIGHT){this->Move_right(temp);}
 }
 
 void Board::Move_up(int temp[][4])const
@@ -348,7 +367,7 @@ int Board::Randon_add()//0 for fail
     return empty_index.size();
 }
 
-void Board::Copy_choice_and_check(int new_table[][4])
+/*void Board::Copy_choice_and_check(int new_table[][4])
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -358,4 +377,4 @@ void Board::Copy_choice_and_check(int new_table[][4])
             if(table[i][j]==Win_base){win=true;}
         }
     }
-}
+}*/

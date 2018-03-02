@@ -15,29 +15,31 @@ class Board
 public:
     void Show()const;
     void Copy_(int new_table[][4]) const;//this to new
-    const bool Compare(int last_table[][4]) const;
+    void Copy_to(Board &board) const;
+    const bool Compare(const int last_table[][4]) const;
     const bool Win() const {return win;};
-    void Replace(int new_table[][4]);//new to this
 
-    int Move(const Option &opt);
-    int Move_up();//return score
-    int Move_down();
-    int Move_right();
-    int Move_left();
+    void Replace(const int new_table[][4]);//new to this
+
+    int Move(const Option &opt);//return score
+    void Move(const Option &opt,int temp[][4]) const;//for AI
 
     int Randon_add();//return empty size
     void New();
     bool Failed();
 
-    //for AI
-    void Move_up(int temp[][4]) const;//return score
-    void Move_down(int temp[][4]) const;
-    void Move_right(int temp[][4]) const;
-    void Move_left(int temp[][4]) const;
-    void Copy_choice_and_check(int new_table[][4]) ;//copy and check win
 private:
     int table[4][4] = {{0}};
     bool win = false;
+    void SetWin(const bool &win);
+    int Move_up();//return score
+    int Move_down();
+    int Move_right();
+    int Move_left();
+    void Move_up(int temp[][4]) const;
+    void Move_down(int temp[][4]) const;
+    void Move_right(int temp[][4]) const;
+    void Move_left(int temp[][4]) const;
 };
 /*{{1,2,1,3},{4,2,4,2},{0,6,5,6},{7,8,8,7}};*/
 #endif

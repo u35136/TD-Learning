@@ -101,23 +101,7 @@ void AI::Failed(Board &board)
 bool AI::Diff_step(const Option &opt, const Board &board, double &table_score)
 {
     int temp[4][4] = {0};
-    if(opt == UP)
-    {
-        board.Move_up(temp);
-    }
-    else if(opt == DOWN)
-    {
-        board.Move_down(temp);
-    }
-    else if(opt == LEFT)
-    {
-        board.Move_left(temp);
-    }
-    else if(opt == RIGHT)
-    {
-        board.Move_right(temp);
-    }
-
+    board.Move(opt,temp);
     if(!board.Compare(temp))
     {
         //cout << opt <<" false "<< endl;

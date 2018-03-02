@@ -29,7 +29,7 @@ int main()
     int win = 0, failed = 0;
     long long int avg_sum = 0, avg_round = 0,avg_max=0;
     string str = "test";
-    //myai.Load(str, win, failed);
+    myai.Load(str, win, failed);
     while(round)
     {
         board.Copy_(table);
@@ -53,7 +53,7 @@ int main()
             if(round %100==0) cout <<"!";
             if(board.Win())
             {
-                cout << "WIN";
+                cout << "W";
                 win++;
                 failed--;
             }
@@ -75,11 +75,11 @@ int main()
                 avg_max=0;
                 //system("pause");
             }
-            if(round == 50000)
+            /*if(round == 40000)
             {
-                str="test_50000";
+                str="test_40000";
                 myai.Save(str, win, failed);
-            }
+            }*/
             board.New();
             //system("pause");
         }
