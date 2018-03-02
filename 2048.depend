@@ -94,22 +94,22 @@
 1519823835 source:c:\users\cgilab\onedrive\2048\2048\ai.cpp
 	"AI.h"
 
-1519920158 source:c:\users\admin\onedrive\2048\td-learning\ai.cpp
+1520002377 source:c:\users\admin\onedrive\2048\td-learning\ai.cpp
 	"AI.h"
 
-1519964895 c:\users\admin\onedrive\2048\td-learning\ai.h
+1519986204 c:\users\admin\onedrive\2048\td-learning\ai.h
 	"board.h"
 	<bits/stdc++.h>
 	<map>
 	<sstream>
 	<fstream>
 
-1519701583 c:\users\admin\onedrive\2048\td-learning\board.h
+1520002523 c:\users\admin\onedrive\2048\td-learning\board.h
 	<bits/stdc++.h>
 	<time.h>
 	<math.h>
 
-1519717004 source:c:\users\admin\onedrive\2048\td-learning\board.cpp
+1520002377 source:c:\users\admin\onedrive\2048\td-learning\board.cpp
 	"board.h"
 
 1519977774 source:c:\users\cgilab\onedrive\2048\td-learning\ai.cpp
@@ -137,7 +137,7 @@
 	"board.h"
 	"AI.h"
 
-1519957234 source:c:\users\admin\onedrive\2048\td-learning\main.cpp
+1520002463 source:c:\users\admin\onedrive\2048\td-learning\main.cpp
 	<bits/stdc++.h>
 	<conio.h>
 	<time.h>

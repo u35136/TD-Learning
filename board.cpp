@@ -14,7 +14,7 @@ void Board::Show()const
         cout << endl;
 }
 
-<<<<<<< HEAD
+
 void Board::Copy_to(Board &board) const
 {
     board.Replace(table);
@@ -26,8 +26,6 @@ void Board::Copy_to(Board &board) const
      win=newwin;
  }
 
-=======
->>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
 void Board::Copy_(int new_table[][4])const
 {
     for(int i = 0; i < 4; ++i)
@@ -79,7 +77,7 @@ bool Board::Failed()
     return true;
 }
 
-void Board::Replace(int new_table[][4])//new to this
+void Board::Replace(const int new_table[][4])//new to this
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -90,16 +88,8 @@ void Board::Replace(int new_table[][4])//new to this
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 void Board::Move(const Option &opt, int temp[][4])const
-=======
-void Board::Move(const Option &opt,int temp[][4])const
->>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
-=======
-void Board::Move(const Option &opt,int temp[][4])const
->>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 {
     if(opt == UP){this->Move_up(temp);}
     else if(opt == DOWN){this->Move_down(temp);}
@@ -107,8 +97,7 @@ void Board::Move(const Option &opt,int temp[][4])const
     else if(opt == RIGHT){this->Move_right(temp);}
 }
 
-=======
->>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+
 void Board::Move_up(int temp[][4])const
 {
     this->Copy_(temp);
@@ -381,11 +370,9 @@ int Board::Randon_add()//0 for fail
     return empty_index.size();
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-void Board::Copy_choice_and_check(int new_table[][4])
+
+/*void Board::Copy_choice_and_check(int new_table[][4])
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
 /*void Board::Copy_choice_and_check(int new_table[][4])
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
@@ -403,11 +390,8 @@ void Board::Copy_choice_and_check(int new_table[][4])
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
 =======
 }*/
->>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
-=======
-}*/
->>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
