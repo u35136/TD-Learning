@@ -92,7 +92,11 @@ void Board::Replace(int new_table[][4])//new to this
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Board::Move(const Option &opt, int temp[][4])const
+=======
+void Board::Move(const Option &opt,int temp[][4])const
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
 void Board::Move(const Option &opt,int temp[][4])const
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
@@ -379,8 +383,12 @@ int Board::Randon_add()//0 for fail
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 void Board::Copy_choice_and_check(int new_table[][4])
+=======
+/*void Board::Copy_choice_and_check(int new_table[][4])
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
 /*void Board::Copy_choice_and_check(int new_table[][4])
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
@@ -394,8 +402,12 @@ void Board::Copy_choice_and_check(int new_table[][4])
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+=======
+}*/
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
 }*/
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5

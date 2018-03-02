@@ -55,11 +55,15 @@ int main()
             {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //cout << "W";
                 round_win++;
 =======
                 cout << "WIN";
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+=======
+                cout << "W";
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
                 cout << "W";
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5

@@ -103,6 +103,7 @@ bool AI::Diff_step(const Option &opt, const Board &board, double &table_score)
     int temp[4][4] = {0};
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     board.Move(opt, temp);
 =======
     if(opt == UP)
@@ -123,6 +124,9 @@ bool AI::Diff_step(const Option &opt, const Board &board, double &table_score)
     }
 
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+=======
+    board.Move(opt,temp);
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
     board.Move(opt,temp);
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5

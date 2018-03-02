@@ -24,6 +24,7 @@ public:
 
     int Move(const Option &opt);//return score
 <<<<<<< HEAD
+<<<<<<< HEAD
     void Move(const Option &opt, int temp[][4]) const; //for AI
 =======
     int Move(const Option &opt);
@@ -32,6 +33,9 @@ public:
     int Move_right();
     int Move_left();
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+=======
+    void Move(const Option &opt,int temp[][4]) const;//for AI
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 =======
     void Move(const Option &opt,int temp[][4]) const;//for AI
 >>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
