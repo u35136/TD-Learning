@@ -6,9 +6,7 @@
 #include <math.h>
 #define Table_base 2
 #define Win_base 11
-
 using namespace std;
-using D2array = array<array<int, 4>, 4>;
 
 enum Option {UP, DOWN, LEFT, RIGHT};
 
@@ -25,6 +23,7 @@ public:
     void Replace(const int new_table[][4]);//new to this
 
     int Move(const Option &opt);//return score
+<<<<<<< HEAD
     void Move(const Option &opt, int temp[][4]) const; //for AI
 =======
     int Move(const Option &opt);
@@ -33,6 +32,9 @@ public:
     int Move_right();
     int Move_left();
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+=======
+    void Move(const Option &opt,int temp[][4]) const;//for AI
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 
     int Randon_add();//return empty size
     void New();
@@ -48,4 +50,5 @@ private:
     int table[4][4] = {{0}};
     bool win = false;
 };
+/*{{1,2,1,3},{4,2,4,2},{0,6,5,6},{7,8,8,7}};*/
 #endif

@@ -1,0 +1,146 @@
+# depslib dependency file v1.0
+1514447275 source:c:\users\linu\desktop\2048\2048\board.cpp
+	"board.h"
+
+1514447095 source:c:\users\linu\desktop\2048\2048\main.cpp
+	<bits/stdc++.h>
+	<conio.h>
+	<time.h>
+	"board.h"
+	"AI.h"
+
+1514446969 c:\users\linu\desktop\2048\2048\board.h
+	<bits/stdc++.h>
+	<time.h>
+	<math.h>
+
+1512058158 c:\users\linu\desktop\2048\2048\tool.h
+
+1514351855 source:c:\users\linu\desktop\2048\2048\ai.cpp
+	"AI.h"
+
+1514351855 c:\users\linu\desktop\2048\2048\ai.h
+	"board.h"
+	<bits/stdc++.h>
+	<map>
+	<sstream>
+	<fstream>
+
+1519717004 source:c:\users\admin\onedrive\2048\2048\board.cpp
+	"board.h"
+
+1519701583 c:\users\admin\onedrive\2048\2048\board.h
+	<bits/stdc++.h>
+	<time.h>
+	<math.h>
+
+1519823475 source:c:\users\admin\onedrive\2048\2048\main.cpp
+	<bits/stdc++.h>
+	<conio.h>
+	<time.h>
+	"board.h"
+	"AI.h"
+
+1519829141 c:\users\admin\onedrive\2048\2048\ai.h
+	"board.h"
+	<bits/stdc++.h>
+	<map>
+	<sstream>
+	<fstream>
+
+1519829007 source:c:\users\admin\onedrive\2048\2048\ai.cpp
+	"AI.h"
+
+1519314187 source:c:\users\linu\downloads\2048\2048\board.cpp
+	"board.h"
+
+1519317220 c:\users\linu\downloads\2048\2048\board.h
+	<bits/stdc++.h>
+	<time.h>
+	<math.h>
+
+1519473705 source:c:\users\linu\downloads\2048\2048\ai.cpp
+	"AI.h"
+
+1519316363 c:\users\linu\downloads\2048\2048\ai.h
+	"board.h"
+	<bits/stdc++.h>
+	<map>
+	<sstream>
+	<fstream>
+
+1519717004 source:c:\users\cgilab\onedrive\2048\2048\board.cpp
+	"board.h"
+
+1519701583 c:\users\cgilab\onedrive\2048\2048\board.h
+	<bits/stdc++.h>
+	<time.h>
+	<math.h>
+
+1519823475 source:c:\users\cgilab\onedrive\2048\2048\main.cpp
+	<bits/stdc++.h>
+	<conio.h>
+	<time.h>
+	"board.h"
+	"AI.h"
+
+1519829141 c:\users\cgilab\onedrive\2048\2048\ai.h
+	"board.h"
+	<bits/stdc++.h>
+	<map>
+	<sstream>
+	<fstream>
+
+1519823835 source:c:\users\cgilab\onedrive\2048\2048\ai.cpp
+	"AI.h"
+
+1519920158 source:c:\users\admin\onedrive\2048\td-learning\ai.cpp
+	"AI.h"
+
+1519964895 c:\users\admin\onedrive\2048\td-learning\ai.h
+	"board.h"
+	<bits/stdc++.h>
+	<map>
+	<sstream>
+	<fstream>
+
+1519701583 c:\users\admin\onedrive\2048\td-learning\board.h
+	<bits/stdc++.h>
+	<time.h>
+	<math.h>
+
+1519717004 source:c:\users\admin\onedrive\2048\td-learning\board.cpp
+	"board.h"
+
+1519977774 source:c:\users\cgilab\onedrive\2048\td-learning\ai.cpp
+	"AI.h"
+
+1519980456 c:\users\cgilab\onedrive\2048\td-learning\ai.h
+	"board.h"
+	<bits/stdc++.h>
+	<map>
+	<sstream>
+	<fstream>
+
+1519976239 c:\users\cgilab\onedrive\2048\td-learning\board.h
+	<bits/stdc++.h>
+	<time.h>
+	<math.h>
+
+1519975113 source:c:\users\cgilab\onedrive\2048\td-learning\board.cpp
+	"board.h"
+
+1519978101 source:c:\users\cgilab\onedrive\2048\td-learning\main.cpp
+	<bits/stdc++.h>
+	<conio.h>
+	<time.h>
+	"board.h"
+	"AI.h"
+
+1519957234 source:c:\users\admin\onedrive\2048\td-learning\main.cpp
+	<bits/stdc++.h>
+	<conio.h>
+	<time.h>
+	"board.h"
+	"AI.h"
+

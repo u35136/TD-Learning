@@ -3,15 +3,15 @@
 void Board::Show()const
 {
     for(int i = 0; i < 4; ++i)
-    {
-        for(int j = 0; j < 4; ++j)
         {
-            int temp = (pow(Table_base, table[i][j]) == 1) ? 0 : pow(Table_base, table[i][j]);
-            cout << setw(4) << temp << " ";
+            for(int j = 0; j < 4; ++j)
+            {
+                int temp = (pow(Table_base, table[i][j]) == 1)? 0 : pow(Table_base, table[i][j]);
+                cout << setw(4) << temp << " ";
+            }
+            cout << endl;
         }
         cout << endl;
-    }
-    cout << endl;
 }
 
 <<<<<<< HEAD
@@ -21,10 +21,10 @@ void Board::Copy_to(Board &board) const
     board.SetWin(win);
 }
 
-void Board::SetWin(const bool &newwin)
-{
-    win = newwin;
-}
+ void Board::SetWin(const bool &newwin)
+ {
+     win=newwin;
+ }
 
 =======
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
@@ -45,8 +45,7 @@ const bool Board::Compare(int last_table[][4])const
     {
         for(int j = 0; j < 4; ++j)
         {
-            if(last_table[i][j] != table[i][j])
-                return true;
+            if(last_table[i][j] != table[i][j]) return true;
         }
     }
     return false;
@@ -54,11 +53,11 @@ const bool Board::Compare(int last_table[][4])const
 
 void Board::New()//necessary????
 {
-    for(int i = 0; i < 4; ++i)
+    for(int i = 0;i<4;++i)
     {
-        for(int j = 0; j < 4; ++j)
+        for(int j = 0;j<4;++j)
         {
-            table[i][j] = 0;
+            table[i][j]=0;
         }
     }
     this->Randon_add();
@@ -67,11 +66,11 @@ void Board::New()//necessary????
 
 bool Board::Failed()
 {
-    for(int i = 0; i < 4; ++i)
+    for(int i=0;i<4;++i)
     {
-        for(int j = 0; j < 4; ++j)
+        for(int j=0;j<4;++j)
         {
-            if((i != 3 && table[i][j] == table[i + 1][j]) || (j != 3 && table[i][j] == table[i][j + 1]))
+            if((i!=3 && table[i][j]==table[i+1][j]) || (j!=3 && table[i][j]==table[i][j+1]))
             {
                 return false;
             }
@@ -86,30 +85,22 @@ void Board::Replace(int new_table[][4])//new to this
     {
         for(int j = 0; j < 4; ++j)
         {
-            table[i][j] = new_table[i][j];
+             table[i][j] = new_table[i][j];
         }
     }
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Board::Move(const Option &opt, int temp[][4])const
+=======
+void Board::Move(const Option &opt,int temp[][4])const
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 {
-    if(opt == UP)
-    {
-        this->Move_up(temp);
-    }
-    else if(opt == DOWN)
-    {
-        this->Move_down(temp);
-    }
-    else if(opt == LEFT)
-    {
-        this->Move_left(temp);
-    }
-    else if(opt == RIGHT)
-    {
-        this->Move_right(temp);
-    }
+    if(opt == UP){this->Move_up(temp);}
+    else if(opt == DOWN){this->Move_down(temp);}
+    else if(opt == LEFT){this->Move_left(temp);}
+    else if(opt == RIGHT){this->Move_right(temp);}
 }
 
 =======
@@ -239,22 +230,10 @@ void Board::Move_left(int temp[][4]) const
 
 int Board::Move(const Option &opt)
 {
-    if(opt == UP)
-    {
-        return this->Move_up();
-    }
-    else if(opt == DOWN)
-    {
-        return this->Move_down();
-    }
-    else if(opt == LEFT)
-    {
-        return this->Move_left();
-    }
-    else if(opt == RIGHT)
-    {
-        return this->Move_right();
-    }
+    if(opt == UP){return this->Move_up();}
+    else if(opt == DOWN){return this->Move_down();}
+    else if(opt == LEFT){return this->Move_left();}
+    else if(opt == RIGHT){return this->Move_right();}
 }
 
 int Board::Move_up()
@@ -269,10 +248,7 @@ int Board::Move_up()
             {
                 last_num = 0;
                 table[now_index - 1][j] += 1;
-                if(table[now_index - 1][j] == Win_base)
-                {
-                    win = true;
-                }
+                if(table[now_index - 1][j]==Win_base){win=true;}
                 score += pow(Table_base, table[now_index - 1][j]);
             }
             else if(table[i][j] != 0)
@@ -303,10 +279,7 @@ int Board::Move_down()
             {
                 last_num = 0;
                 table[now_index + 1][j] += 1;
-                if(table[now_index + 1][j] == Win_base)
-                {
-                    win = true;
-                }
+                if(table[now_index +1][j]==Win_base){win=true;}
                 score += pow(Table_base, table[now_index + 1][j]);
             }
             else if(table[i][j] != 0)
@@ -337,10 +310,7 @@ int Board::Move_right()
             {
                 last_num = 0;
                 table[i][now_index + 1] += 1;
-                if(table[i][now_index + 1] == Win_base)
-                {
-                    win = true;
-                }
+                if(table[i][now_index + 1]==Win_base){win=true;}
                 score += pow(Table_base, table[i][now_index + 1]);
             }
             else if(table[i][j] != 0)
@@ -371,10 +341,7 @@ int Board::Move_left()
             {
                 last_num = 0;
                 table[i][now_index - 1] += 1;
-                if(table[i][now_index - 1] == Win_base)
-                {
-                    win = true;
-                }
+                if(table[i][now_index - 1]==Win_base){win=true;}
                 score += pow(Table_base, table[i][now_index - 1]);
             }
             else if(table[i][j] != 0)
@@ -400,12 +367,10 @@ int Board::Randon_add()//0 for fail
     {
         for(int j = 0; j < 4; ++j)
         {
-            if(table[i][j] == 0)
-                empty_index.push_back(4 * i + j);
+            if(table[i][j] == 0)empty_index.push_back(4 * i + j);
         }
     }
-    if(empty_index.size() == 0)
-        cout << "::";
+    if(empty_index.size()==0) cout << "::";
     int index = rand() % empty_index.size();
 
     table[empty_index[index] / 4][empty_index[index] % 4] = (rand() % 10 == 0) ? 2 : 1;
@@ -413,8 +378,12 @@ int Board::Randon_add()//0 for fail
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 void Board::Copy_choice_and_check(int new_table[][4])
+=======
+/*void Board::Copy_choice_and_check(int new_table[][4])
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -424,5 +393,9 @@ void Board::Copy_choice_and_check(int new_table[][4])
             if(table[i][j]==Win_base){win=true;}
         }
     }
+<<<<<<< HEAD
 }
 >>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
+=======
+}*/
+>>>>>>> parent of b13c212... 有一層美好未來的 均分1w9 極大7w5
