@@ -3,13 +3,14 @@
 string intMapString[] =
 {
     "00", "01", "02", "03", "04", "05",
-    "06", "07", "08", "09", "10"
+    "06", "07", "08", "09", "10",
+    "11", "12", "13", "14", "15",
+    "16", "17", "18", "19", "20"
 };
 
 int AI::Go(Board &board)
 {
-    //it should be a useful step
-    double max_table_score = -10000; //default DOUBLE_MIN
+    double max_table_score = -10000;
     Option opt;
     double temp_table_score = 0.0;
     if(this->Diff_step(UP, board, temp_table_score) && temp_table_score > max_table_score)
@@ -75,7 +76,7 @@ void AI::Failed(Board &board)
     {
         //cout << mapkey[i]<<endl;
         //myscore[mapkey[i]] = myscore[mapkey[i]] + (target_data / 16.0) * L_rate;
-        myscore[mapkey[i]] = myscore[mapkey[i]] + ((target_data-old_table_score) / 16.0) * L_rate;
+        myscore[mapkey[i]] = myscore[mapkey[i]] + ((target_data - old_table_score) / 16.0) * L_rate;
     }
     double now_update_table_score, round_score;
     for(int i = last.size() - 1; i >= 0; --i)
@@ -144,6 +145,14 @@ double AI::Table_score(const int table[][4])
             tempkey3 += intMapString[table[3 - i][3 - j]];
             tempkey4 += intMapString[table[3 - j][3 - i]];
         }
+        /*if(tempkey1.size() < 8 || tempkey2.size() < 8 || tempkey3.size() < 8 || tempkey4.size() < 8)
+        {
+            cout << tempkey1 << endl;
+            cout << tempkey2 << endl;
+            cout << tempkey3 << endl;
+            cout << tempkey4 << endl;
+            system("pause");
+        }*/
         mapkey.push_back(tempkey1);
         mapkey.push_back(tempkey2);
         mapkey.push_back(tempkey3);
@@ -164,7 +173,7 @@ double AI::Table_score(const int table[][4])
 
 void AI::Save(string &filename, const int &win, const int &failed)const
 {
-    filename+=".txt";
+    filename += ".txt";
     ofstream fp(filename);
     fp << win << " " << failed << endl;
     auto it = myscore.begin();
@@ -183,7 +192,7 @@ void AI::Load(string &filename, int &win, int &failed)
     while(fp >> key)
     {
         fp >> value;
-        myscore[key]=value;
+        myscore[key] = value;
     }
     fp.close();
 }

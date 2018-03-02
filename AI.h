@@ -8,7 +8,7 @@
 #include <fstream>
 #define L_rate 0.1
 
-using D2array =array<array<int, 4>, 4>;
+using D2array = array<array<int, 4>, 4>;
 
 struct BoardState
 {
