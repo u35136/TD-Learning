@@ -29,7 +29,7 @@ int main()
     int win = 0, failed = 0,round_win = 0,round_failed = 0;
     long long int avg_sum = 0, avg_round = 0,avg_max=0;
     string str = "test";
-    myai.Load(str, win, failed);
+    //myai.Load(str, win, failed);
     while(round)
     {
         board.Copy_(table);
@@ -58,8 +58,12 @@ int main()
             }
             if(board.Win())
             {
+<<<<<<< HEAD
                 //cout << "W";
                 round_win++;
+=======
+                cout << "WIN";
+>>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
                 win++;
                 failed--;
                 round_failed--;
@@ -82,11 +86,11 @@ int main()
                 avg_max=0;
                 //system("pause");
             }
-            /*if(round == 40000)
+            if(round == 50000)
             {
-                str="test_40000";
+                str="test_50000";
                 myai.Save(str, win, failed);
-            }*/
+            }
             board.New();
             //system("pause");
         }

@@ -14,6 +14,7 @@ void Board::Show()const
     cout << endl;
 }
 
+<<<<<<< HEAD
 void Board::Copy_to(Board &board) const
 {
     board.Replace(table);
@@ -25,6 +26,8 @@ void Board::SetWin(const bool &newwin)
     win = newwin;
 }
 
+=======
+>>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
 void Board::Copy_(int new_table[][4])const
 {
     for(int i = 0; i < 4; ++i)
@@ -36,7 +39,7 @@ void Board::Copy_(int new_table[][4])const
     }
 }
 
-const bool Board::Compare(const int last_table[][4])const
+const bool Board::Compare(int last_table[][4])const
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -77,7 +80,7 @@ bool Board::Failed()
     return true;
 }
 
-void Board::Replace(const int new_table[][4])//new to this
+void Board::Replace(int new_table[][4])//new to this
 {
     for(int i = 0; i < 4; ++i)
     {
@@ -88,6 +91,7 @@ void Board::Replace(const int new_table[][4])//new to this
     }
 }
 
+<<<<<<< HEAD
 void Board::Move(const Option &opt, int temp[][4])const
 {
     if(opt == UP)
@@ -108,6 +112,8 @@ void Board::Move(const Option &opt, int temp[][4])const
     }
 }
 
+=======
+>>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
 void Board::Move_up(int temp[][4])const
 {
     this->Copy_(temp);
@@ -406,3 +412,17 @@ int Board::Randon_add()//0 for fail
     return empty_index.size();
 }
 
+<<<<<<< HEAD
+=======
+void Board::Copy_choice_and_check(int new_table[][4])
+{
+    for(int i = 0; i < 4; ++i)
+    {
+        for(int j = 0; j < 4; ++j)
+        {
+            table[i][j] = new_table[i][j];
+            if(table[i][j]==Win_base){win=true;}
+        }
+    }
+}
+>>>>>>> parent of 44143b8... 朝乾淨的程式碼前進
