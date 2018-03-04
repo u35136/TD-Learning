@@ -8,35 +8,39 @@ string intMapString[] =
     "16", "17", "18", "19", "20"
 };
 
-int AI::Go(Board &board)
+double AI::beautiful_future(Board &board) //return max_score
 {
     double max_table_score = -10000;
-    Option opt;
     double temp_table_score = 0.0;
     if(this->Diff_step(UP, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
-        opt = UP;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score << endl;
     }
     if(this->Diff_step(RIGHT, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
-        opt = RIGHT;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
     }
     if(this->Diff_step(DOWN, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
-        opt = DOWN;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
     }
     if(this->Diff_step(LEFT, board, temp_table_score) && temp_table_score > max_table_score)
     {
         max_table_score = temp_table_score;
-        opt = LEFT;
-        //cout << "Yes " << opt <<"  table_score " << temp_table_score<< endl;
     }
+
+    return max_table_score;
+}
+
+int AI::Go(Board &board)
+{
+    double max_table_score = -10000;
+    Option opt;
+
+    this->choice_option(opt, UP, board, max_table_score);
+    this->choice_option(opt, DOWN, board, max_table_score);
+    this->choice_option(opt, LEFT, board, max_table_score);
+    this->choice_option(opt, RIGHT, board, max_table_score);
 
     //cout << "MY option "<< opt <<" Now max_table_score " << max_table_score<<endl;
     BoardState temp;
@@ -52,6 +56,36 @@ int AI::Go(Board &board)
 
     return temp.round_score;
 }
+
+void AI::choice_option(Option &opt, const Option &now_opt, const Board &board, double &max_table_score)
+{
+    Board tempboard;
+    board.Copy_to(tempboard);
+    double temp_table_score = 0.0;
+    if(this->Diff_step(now_opt, board, temp_table_score))
+    {
+        int table[4][4];
+        tempboard.Copy_(table);
+        tempboard.Move(now_opt);
+        if(tempboard.Compare(table) && tempboard.Randon_add() == 1 && tempboard.Failed())
+        {
+            temp_table_score = 0;
+        }
+        else{
+            temp_table_score += this->beautiful_future(tempboard);
+        }
+        //cout <<temp_table_score<<" "<<max_table_score<<endl;
+        if( temp_table_score > max_table_score)
+        {
+            max_table_score = temp_table_score;
+            opt = now_opt;
+            //cout << "Yes " ;
+        }
+        board.Copy_to(tempboard);
+        //cout << now_opt<<"  table_score " << temp_table_score << endl;
+    }
+}
+
 
 /*void AI::Reward(const int table[][4], double max_table_score, const int &round_score)
 {
@@ -101,7 +135,6 @@ void AI::Failed(Board &board)
 bool AI::Diff_step(const Option &opt, const Board &board, double &table_score)
 {
     int temp[4][4] = {0};
-
     board.Move(opt, temp);
     if(!board.Compare(temp))
     {
@@ -130,14 +163,6 @@ double AI::Table_score(const int table[][4])
             tempkey3 += intMapString[table[3 - i][3 - j]];
             tempkey4 += intMapString[table[3 - j][3 - i]];
         }
-        /*if(tempkey1.size() < 8 || tempkey2.size() < 8 || tempkey3.size() < 8 || tempkey4.size() < 8)
-        {
-            cout << tempkey1 << endl;
-            cout << tempkey2 << endl;
-            cout << tempkey3 << endl;
-            cout << tempkey4 << endl;
-            system("pause");
-        }*/
         mapkey.push_back(tempkey1);
         mapkey.push_back(tempkey2);
         mapkey.push_back(tempkey3);

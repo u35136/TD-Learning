@@ -7,6 +7,7 @@
 #include <sstream>
 #include <fstream>
 #define L_rate 0.1
+#define D_factor 0.5
 
 using D2array = array<array<int, 4>, 4>;
 
@@ -19,8 +20,8 @@ struct BoardState
 class AI
 {
 public:
-    //AI();
     int Go(Board &board);//return round_score
+    double beautiful_future(Board &board);//return max_score
     void Save(string &filename, const int &win, const int &failed)const;
     void Load(string &filename, int &win, int &failed);
 
@@ -34,6 +35,7 @@ private:
 
     vector <BoardState> last;
     vector <string> mapkey;
+    void choice_option(Option &opt,const Option &now_opt,const Board &board, double &max_table_score) ;
 };
 
 #endif
